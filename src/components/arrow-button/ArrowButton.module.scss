@@ -1,0 +1,34 @@
+/* Контейнер для кнопки */
+.container {
+	position: fixed;
+	top: 31px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100px;
+	height: 100px;
+	background-color: #000;
+	border-right: 1px solid transparent; /* Уточнено использование цвета для border */
+	transition: transform 0.5s ease;
+	flex-shrink: 0;
+	box-sizing: border-box;
+  }
+
+  /* Стиль для контейнера при открытии меню */
+  .container_open {
+	transform: translateX(616px); /* Позиционирование контейнера */
+  }
+
+  /* Стиль стрелочки */
+  .arrow {
+	width: 48px;
+	height: 48px;
+	transform: rotate(180deg); /* Стрелка изначально вращена */
+	transition: transform 0.5s ease;
+	flex-shrink: 0;
+  }
+
+  /* Стиль стрелочки при открытом меню */
+  .arrow_open {
+	transform: rotate(0deg); /* Стрелка повернута в нормальное положение */
+  }
