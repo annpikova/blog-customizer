@@ -77,4 +77,4 @@ export const ArticleParamsForm = (props: IArticleParamsFormProps) => {
 			</aside>
 		</>
 	);
-};
+}

@@ -21,6 +21,7 @@ const domNode = document.getElementById('root') as HTMLDivElement;
 const root = createRoot(domNode);
 
 const App = () => {
+
   const [articleState, setArticleState] = useState(defaultArticleState);
 
   const style: CSSPropertiesWithVariables = {
@@ -43,4 +44,5 @@ root.render(
   <StrictMode>
     <App />
   </StrictMode>
-);
+)
+
