@@ -1,32 +1,40 @@
+/* Контейнер сайдбара */
+
 .container {
 	position: fixed;
 	left: 0;
-	width: 616px;
+	width: 616px; /* Ширина сайдбара */
 	height: 100%;
 	overflow: scroll;
-	transform: translate(-616px);
-	transition: transform 0.5s ease;
+	transform: translateX(-616px); /* Начальное скрытие */
+	transition: transform 0.5s ease; /* Плавное открытие/закрытие */
 }
 
+/* Контейнер сайдбара при открытом состоянии */
+
 .container_open {
-	transform: translate(0);
+	transform: translateX(0); /* Позиционирование сайдбара при открытии */
 }
+
+/* Форма внутри сайдбара */
 
 .form {
 	display: flex;
-	flex-shrink: 0;
 	flex-direction: column;
+	gap: 40px; /* Расстояние между элементами формы */
 	box-sizing: border-box;
-	width: 616px;
+	width: 616px; /* Ширина формы */
 	height: auto;
-	min-height: 100%;
+	min-height: 100%; /* Чтобы форма растягивалась на всю высоту */
 	padding: 50px 31px;
 	background-color: #ffffff;
-	border-right: 1px solid #000000;
+	border-right: 1px solid #000000; /* Граница справа */
 }
+
+/* Контейнер для кнопок внизу */
 
 .bottomContainer {
 	display: flex;
-	justify-content: space-between;
-	margin-top: auto;
+	justify-content: space-between; /* Кнопки расположены по краям */
+	margin-top: auto; /* Кнопки всегда внизу */
 }

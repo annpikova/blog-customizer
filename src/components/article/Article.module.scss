@@ -1,3 +1,5 @@
+/* Основной контейнер для статьи */
+
 .article {
 	display: flex;
 	flex-direction: column;
@@ -9,9 +11,13 @@
 	padding: 72px 0 144px;
 }
 
+/* Описание заголовка статьи */
+
 .titleDescription {
 	max-width: 550px;
 }
+
+/* Стилизация изображений внутри статьи */
 
 .image {
 	width: 100%;
