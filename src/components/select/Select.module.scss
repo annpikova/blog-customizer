@@ -1,0 +1,219 @@
+/* Общий контейнер для select */
+
+.selectWrapper {
+	position: relative;
+}
+
+/* Контейнер с опциями */
+
+.container {
+	display: flex;
+	flex-direction: column;
+	row-gap: 4px;
+}
+
+/* Стиль для стрелочки */
+
+.arrow {
+	position: absolute;
+	top: 50%;
+	right: 6px;
+	margin-top: -12px;
+	transition: transform 0.2s ease-in-out, margin-top 0.2s ease-in-out;
+}
+
+/* Стиль для placeholder */
+
+.placeholder {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	box-sizing: border-box;
+	width: 100%;
+	height: 50px;
+	padding: 15px 17px;
+	background: rgb(255 255 255);
+	outline: 1px solid #000000;
+	cursor: pointer;
+}
+
+/* Стиль для выбранного состояния placeholder */
+
+.placeholder[data-selected='true'] {
+	color: rgb(0 0 0);
+}
+
+/* Стиль для активного состояния */
+
+.selectWrapper[data-is-active='true'] .arrow {
+	margin-top: -14px;
+	transform: rotate(180deg);
+}
+
+.selectWrapper[data-is-active='true'] .placeholder {
+	outline: 3px solid #000000;
+}
+
+/* Hover для неактивных элементов */
+
+.selectWrapper:not([data-is-active='true'])
+	.placeholder:not([data-status='invalid']):hover {
+	outline: 3px solid #000000;
+}
+
+/* Стили для выпадающего списка */
+
+.select {
+	position: absolute;
+	z-index: 10;
+	display: grid;
+	box-sizing: border-box;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	background-color: rgb(255 255 255 / 100%);
+	border-top: none;
+	outline: 3px solid #000000;
+}
+
+/* Стиль для опции */
+
+.option {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	height: 30px;
+	padding: 5px;
+	padding: 15px 17px;
+	background-color: rgb(255 255 255 / 100%);
+	border: 1px solid;
+	cursor: pointer;
+}
+
+/* Стиль для активной опции */
+
+.option[aria-selected='true'] {
+	background-color: rgb(0 0 0 / 5%);
+}
+
+/* Hover эффект для опции */
+
+.option:hover {
+	background: var(--grey, #c4c4c4);
+}
+
+/* Общие стили для переднего изображения и цвета */
+
+@mixin option-color-before($bg-color) {
+	content: '';
+	width: 35px;
+	height: 35px;
+	margin-right: 10px;
+	background-color: $bg-color;
+}
+
+/* Стили для цветных опций */
+
+.option-black::before {
+	@include option-color-before(#000);
+}
+
+.option-white::before {
+	@include option-color-before(#fff);
+	border: 1px solid #000000;
+}
+
+.option-gray::before {
+	@include option-color-before(#c4c4c4);
+}
+
+.option-pink::before {
+	@include option-color-before(#feafe8);
+}
+
+.option-fuchsia::before {
+	@include option-color-before(#fd24af);
+}
+
+.option-yellow::before {
+	@include option-color-before(#ffc802);
+}
+
+.option-green::before {
+	@include option-color-before(#80d994);
+}
+
+.option-blue::before {
+	@include option-color-before(#6fc1fd);
+}
+
+.option-purple::before {
+	@include option-color-before(#5f0dee);
+}
+
+/* Стили для выбранных опций */
+
+@mixin option-color-after($bg-color) {
+	position: absolute;
+	left: 26px;
+	width: 17px;
+	height: 17px;
+	background-color: $bg-color;
+	border-radius: 100%;
+	content: '';
+}
+
+.option-black[data-selected='true']::after {
+	@include option-color-after(#fff);
+}
+
+.option-white[data-selected='true']::after {
+	@include option-color-after(#000);
+}
+
+.option-gray[data-selected='true']::after {
+	@include option-color-after(#fff);
+}
+
+.option-pink[data-selected='true']::after {
+	@include option-color-after(#fff);
+}
+
+.option-fuchsia[data-selected='true']::after {
+	@include option-color-after(#fff);
+}
+
+.option-yellow[data-selected='true']::after {
+	@include option-color-after(#fff);
+}
+
+.option-green[data-selected='true']::after {
+	@include option-color-after(#fff);
+}
+
+.option-blue[data-selected='true']::after {
+	@include option-color-after(#fff);
+}
+
+.option-purple[data-selected='true']::after {
+	@include option-color-after(#fff);
+}
+
+/* Стили для ширины опций */
+
+@mixin option-width-before($image) {
+	content: '';
+	width: 25px;
+	height: 25px;
+	margin-right: 10px;
+	background-image: url($image);
+}
+
+.option-wide::before {
+	@include option-width-before('./../../images/wide.svg');
+}
+
+.option-narrow::before {
+	@include option-width-before('./../../images/narrow.svg');
+}
